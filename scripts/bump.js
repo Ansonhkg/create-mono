@@ -18,6 +18,9 @@ const rl = readline.createInterface({
 rl.question(
   "Which version do you want to bump? (major, minor, patch): ",
   (version) => {
+    // Default to patch if no input is provided
+    version = version || 'patch';
+
     // Update the version
     switch (version) {
       case "major":

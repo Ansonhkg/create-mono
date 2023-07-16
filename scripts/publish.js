@@ -28,7 +28,7 @@ packageDirs.forEach((packageDir) => {
   // Only try to publish if the dist directory exists
   if (fs.existsSync(distDir)) {
     console.log(`Publishing ${packageDir}...`);
-    execSync("npm publish", { cwd: distDir, stdio: "inherit" });
+    execSync("npm publish --access=public", { cwd: distDir, stdio: "inherit" });
     console.log(`Published ${packageDir}`);
   }
 });

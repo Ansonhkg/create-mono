@@ -8,7 +8,7 @@ const packageDirs = fs
   .filter((file) => fs.statSync(path.join(packagesDir, file)).isDirectory());
 
 packageDirs.forEach((packageDir) => {
-  console.log(`\nCleaning package "${packageDir}"...`);
+  console.log(`🧹 Cleaning package "${packageDir}"...`);
   const distDir = path.join(packagesDir, packageDir, "dist");
   if (fs.existsSync(distDir)) {
     fs.rmSync(distDir, { recursive: true, force: true });

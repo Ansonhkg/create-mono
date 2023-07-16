@@ -1,6 +1,6 @@
 {
-  "name": "websaam",
-  "version": "0.0.2",
+  "name": "create-mono",
+  "version": "0.0.1",
   "description": "a simple mono-modules repo",
   "main": "index.js",
   "license": "MIT",
@@ -15,7 +15,7 @@
   "devDependencies": {
     "esbuild": "^0.18.13"
   },
-  "dependencies": {
-    "@lit-protocol/lit-node-client": "^2.2.41"
+  "bin": {
+    "create-mono": "./bin.js"
   }
 }
