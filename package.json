@@ -1,8 +1,11 @@
 {
   "name": "create-mono",
-  "version": "0.0.1",
+  "version": "0.0.12",
   "description": "a simple mono-modules repo",
-  "main": "index.js",
+  "author": {
+    "name": "Anson C",
+    "email": "websaamuk@gmail.com"
+  },
   "license": "MIT",
   "scripts": {
     "clean": "node scripts/clean.js",
@@ -16,6 +19,6 @@
     "esbuild": "^0.18.13"
   },
   "bin": {
-    "create-mono": "./bin.js"
+    "create-mono": "./scripts/create-mono.js"
   }
 }
