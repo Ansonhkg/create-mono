@@ -1,6 +1,6 @@
 {
   "name": "create-mono",
-  "version": "0.0.12",
+  "version": "0.0.14",
   "description": "a simple mono-modules repo",
   "author": {
     "name": "Anson C",
@@ -13,7 +13,8 @@
     "build": "node scripts/build.js && tsc && yarn build:types",
     "build:types": "node scripts/build-types.js",
     "bump": "node scripts/bump.js && yarn build",
-    "pub": "node scripts/publish.js"
+    "pub": "node scripts/publish.js",
+    "size": "node scripts/size.js"
   },
   "devDependencies": {
     "esbuild": "^0.18.13"
