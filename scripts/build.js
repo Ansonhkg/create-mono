@@ -18,6 +18,17 @@ console.log(`Found ${packageDirs.length} package directories:`, packageDirs);
 packageDirs.forEach(async (packageDir) => {
   console.log(`\nBuilding package "${packageDir}"...`);
 
+  // try to read pkg.json
+  const pkgJson = path.join(packagesDir, packageDir, "pkg.json");
+
+  let pkgJsonContent = null;
+
+  if (fs.existsSync(pkgJson)) {
+    console.log(`Found pkg.json for package "${packageDir}".`);
+    console.log(`Reading pkg.json for package "${packageDir}"...`);
+    pkgJsonContent = JSON.parse(fs.readFileSync(pkgJson, "utf8"));
+  }
+
   try {
     console.log(
       `Bundling package "${packageDir}" into CommonJS with esbuild...`
@@ -27,8 +38,10 @@ packageDirs.forEach(async (packageDir) => {
       bundle: true,
       format: "cjs",
       outfile: path.join(packagesDir, packageDir, "dist", "cjs", "index.js"),
-      // external: Object.keys(rootPackageJson.dependencies || {}),
       logLevel: "info",
+      ...(pkgJsonContent !== null && {
+        platform: pkgJsonContent["create-mono"].platform,
+      }),
     });
 
     console.log(
@@ -39,8 +52,10 @@ packageDirs.forEach(async (packageDir) => {
       bundle: true,
       format: "esm",
       outfile: path.join(packagesDir, packageDir, "dist", "esm", "index.js"),
-      // external: Object.keys(rootPackageJson.dependencies || {}),
       logLevel: "info",
+      ...(pkgJsonContent !== null && {
+        platform: pkgJsonContent["create-mono"].platform,
+      }),
     });
 
     console.log(`Bundling of package "${packageDir}" completed.`);
@@ -52,6 +67,9 @@ packageDirs.forEach(async (packageDir) => {
       main: "./cjs/index.js",
       module: "./esm/index.js",
       types: "./index.d.ts",
+      ...(pkgJsonContent !== null && {
+        platform: pkgJsonContent["create-mono"].platform,
+      }),
     };
 
     fs.writeFileSync(
