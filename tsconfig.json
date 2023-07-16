@@ -4,7 +4,9 @@
     "checkJs": true,
     "declaration": true,
     "emitDeclarationOnly": true,
-    "outDir": "./packages"
+    "outDir": "./packages",
+    "target": "ES6",
+    "moduleResolution": "node"
   },
   "include": ["packages/**/*"],
   "exclude": ["node_modules", "**/*.test.js", "**/dist/*"]

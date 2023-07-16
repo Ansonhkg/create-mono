@@ -24,10 +24,10 @@ packageDirs.forEach(async (packageDir) => {
     );
     await esbuild.build({
       entryPoints: [path.join(packagesDir, packageDir, "index.js")],
-      // bundle: true,
+      bundle: true,
       format: "cjs",
       outfile: path.join(packagesDir, packageDir, "dist", "cjs", "index.js"),
-      external: Object.keys(rootPackageJson.dependencies || {}),
+      // external: Object.keys(rootPackageJson.dependencies || {}),
       logLevel: "info",
     });
 
@@ -39,7 +39,7 @@ packageDirs.forEach(async (packageDir) => {
       bundle: true,
       format: "esm",
       outfile: path.join(packagesDir, packageDir, "dist", "esm", "index.js"),
-      external: Object.keys(rootPackageJson.dependencies || {}),
+      // external: Object.keys(rootPackageJson.dependencies || {}),
       logLevel: "info",
     });
 
