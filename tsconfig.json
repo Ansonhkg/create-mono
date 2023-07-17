@@ -6,7 +6,8 @@
     "emitDeclarationOnly": true,
     "outDir": "./packages",
     "target": "ES6",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true
   },
   "include": ["packages/**/*"],
   "exclude": ["node_modules", "**/*.test.js", "**/dist/*"]
