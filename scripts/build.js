@@ -1,9 +1,14 @@
-const esbuild = require("esbuild");
-const fs = require("fs");
-const path = require("path");
+import esbuild from "esbuild";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 console.log("Reading root package.json...");
-const rootPackageJson = require(path.resolve(__dirname, "../package.json"));
+const rootPackageJson = path.resolve(__dirname, "../package.json");
 
 console.log("Resolving packages directory...");
 const packagesDir = path.join(__dirname, "../packages");

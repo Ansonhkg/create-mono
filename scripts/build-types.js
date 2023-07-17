@@ -1,8 +1,10 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 
-console.log("Reading root package.json...");
-const rootPackageJson = require(path.resolve(__dirname, "../package.json"));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 console.log("Resolving packages directory...");
 const packagesDir = path.join(__dirname, "../packages");

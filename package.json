@@ -2,6 +2,7 @@
   "name": "create-mono",
   "version": "0.0.15",
   "description": "a simple mono-modules repo",
+  "type": "module",
   "author": {
     "name": "Anson C",
     "email": "websaamuk@gmail.com"
