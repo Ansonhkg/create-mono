@@ -8,7 +8,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 console.log("Reading root package.json...");
-const rootPackageJson = path.resolve(__dirname, "../package.json");
+const rootPackageJson = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, "../package.json"), "utf8")
+);
 
 console.log("Resolving packages directory...");
 const packagesDir = path.join(__dirname, "../packages");
