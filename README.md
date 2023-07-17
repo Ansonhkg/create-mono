@@ -1,6 +1,6 @@
 # Create Mono
 
-`create-mono` is NOT a monorepo. It a build script that builds each module into its own bundle, including its dependencies. The script automatically injects a package.json file into the `./dist` folder for each module. The package.json file is named by prepending the root package.json name as a namespace followed by the module name (e.g., `@root/moduleA`).
+`create-mono` is NOT a monorepo. It's a build script that builds each module into its own bundle, including its dependencies. The script automatically injects a package.json file into the `./dist` folder for each module. The package.json name is named by prepending the root package.json name as a namespace followed by the module name (e.g., `@root/moduleA`).
 
 ## Scripts
 
