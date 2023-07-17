@@ -1,6 +1,6 @@
-const fs = require("fs");
-const path = require("path");
-const readline = require("readline");
+import fs from "fs";
+import path from "path";
+import readline from "readline";
 
 // Read the current version from package.json
 const packageJsonPath = path.resolve(__dirname, "../package.json");
